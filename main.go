@@ -48,6 +48,11 @@ func (d *DynamoDBLockClient) HasLock() (bool, error) {
 	return d.dynamoHasLock()
 }
 
+// SetLockName sets the name of the lock
+func (d *DynamoDBLockClient) SetLockName(n string) {
+	d.LockName = n
+}
+
 // LockError returns a lock error if the heartbeat thread found one
 func (d *DynamoDBLockClient) LockError() error {
 	return d.lockError

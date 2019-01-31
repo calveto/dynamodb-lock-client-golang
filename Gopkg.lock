@@ -67,6 +67,14 @@
   revision = "0b12d6b5"
 
 [[projects]]
+  digest = "1:758389ec5ceaaf72628cd74a543cef23997a7155036f1e697e5ae0c33d843328"
+  name = "github.com/samstradling/dynamodb-lock-client-golang"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "4cb3cd5be44b033970a210f3669ccbd6d4f8d402"
+  version = "v0.1.0"
+
+[[projects]]
   digest = "1:d867dfa6751c8d7a435821ad3b736310c2ed68945d05b50fb9d23aee0540c8cc"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
@@ -104,6 +112,7 @@
     "github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface",
     "github.com/aws/aws-sdk-go/service/dynamodb/expression",
     "github.com/google/uuid",
+    "github.com/samstradling/dynamodb-lock-client-golang",
     "github.com/sirupsen/logrus",
   ]
   solver-name = "gps-cdcl"

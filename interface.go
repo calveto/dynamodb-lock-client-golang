@@ -6,4 +6,5 @@ type LockClient interface {
 	HasLock() (bool, error)
 	StopHeartbeat()
 	RemoveLock() error
+	SetLockName(string)
 }

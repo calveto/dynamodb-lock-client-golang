@@ -201,6 +201,25 @@ func TestHeartbeatFails(t *testing.T) {
 	}
 }
 
+func TestLockName(t *testing.T) {
+	d := &DynamoDBLockClient{
+		LockName:        "my-unique-lock-name",
+		LeaseDuration:   50 * time.Millisecond,
+		HeartbeatPeriod: 10 * time.Millisecond,
+		TableName:       "LockTable",
+		Client:          &MockedDynamoClient{Err: nil, FailAfterFirst: true},
+	}
+
+	if d.LockName != "my-unique-lock-name" {
+		t.Fatalf("Lock Name not initialized")
+	}
+
+	d.SetLockName("new-lock-name")
+
+	if d.LockName != "new-lock-name" {
+		t.Fatalf("Lock Name has not been updated")
+	}
+}
 func IsALockClient(lc LockClient) func() (bool, error) {
 	return lc.HasLock
 }
